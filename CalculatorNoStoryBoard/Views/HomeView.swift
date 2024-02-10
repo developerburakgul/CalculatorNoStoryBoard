@@ -27,10 +27,10 @@ class HomeView: UIView {
         
         return stackView
     }()
-    lazy var buttonAC = CustomButton(typeButon: .operationButton(.buttonAC))
-    lazy var buttonChangeSign = CustomButton(typeButon: .operationButton(.buttonChangeSign))
-    lazy var buttonPercentage = CustomButton(typeButon: .operationButton(.buttonPercentage))
-    lazy var buttonDivide = CustomButton(typeButon: .operationButton(.buttonDivide))
+    lazy var buttonAC = CustomButton(typeButon: .operationButton(.acOperationButton(.buttonAC)))
+    lazy var buttonChangeSign = CustomButton(typeButon: .operationButton(.specialOperationButtons(.buttonChangeSign)))
+    lazy var buttonPercentage = CustomButton(typeButon: .operationButton(.specialOperationButtons(.buttonPercentage)))
+    lazy var buttonDivide = CustomButton(typeButon: .operationButton(.arithmeticOperationButtons(.buttonDivide)))
     //MARK: - Stack 2
     lazy var stackView2 : UIStackView = {
         var stackView = UIStackView()
@@ -41,7 +41,7 @@ class HomeView: UIView {
     lazy var button7 = CustomButton(typeButon: .numberButton(.button7))
     lazy var button8 = CustomButton(typeButon: .numberButton(.button8))
     lazy var button9 = CustomButton(typeButon: .numberButton(.button9))
-    lazy var buttonMultiplication = CustomButton(typeButon: .operationButton(.buttonMultiplication))
+    lazy var buttonMultiplication = CustomButton(typeButon: .operationButton(.arithmeticOperationButtons(.buttonMultiplication)))
     //MARK: - Stack 3
     lazy var stackView3 : UIStackView = {
         var stackView = UIStackView()
@@ -52,7 +52,7 @@ class HomeView: UIView {
     lazy var button4 = CustomButton(typeButon: .numberButton(.button4))
     lazy var button5 = CustomButton(typeButon: .numberButton(.button5))
     lazy var button6 = CustomButton(typeButon: .numberButton(.button6))
-    lazy var buttonMinus = CustomButton(typeButon: .operationButton(.buttonMinus))
+    lazy var buttonMinus = CustomButton(typeButon: .operationButton(.plusMinusOperationButtons(.buttonMinus)))
     //MARK: - Stack 4
     lazy var stackView4 : UIStackView = {
         var stackView = UIStackView()
@@ -63,7 +63,7 @@ class HomeView: UIView {
     lazy var button1 = CustomButton(typeButon: .numberButton(.button1))
     lazy var button2 = CustomButton(typeButon: .numberButton(.button2))
     lazy var button3 = CustomButton(typeButon: .numberButton(.button3))
-    lazy var buttonPlus = CustomButton(typeButon: .operationButton(.buttonPlus))
+    lazy var buttonPlus = CustomButton(typeButon: .operationButton(.plusMinusOperationButtons(.buttonPlus)))
     //MARK: - Stack 5
     lazy var stackView5 : UIStackView = {
         var stackView = UIStackView()
@@ -73,7 +73,7 @@ class HomeView: UIView {
     }()
     lazy var button0 = CustomButton(typeButon: .numberButton(.button0))
     lazy var buttonComma = CustomButton(typeButon: .numberButton(.buttonDot))
-    lazy var buttonEqual = CustomButton(typeButon: .operationButton(.buttonEqual))
+    lazy var buttonEqual = CustomButton(typeButon: .operationButton(.equalOperationButton(.buttonEqual)))
     
     //MARK: - Init Methods
     override init(frame: CGRect) {
@@ -90,6 +90,7 @@ class HomeView: UIView {
     //MARK: - Configuration Functions
     private func configuration() {
         backgroundColor = .black
+        frame = bounds
         configurationStack5()
         configurationStack4()
         configurationStack3()

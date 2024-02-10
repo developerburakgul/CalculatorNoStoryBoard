@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import UIKit
 
 enum NumberButton : String {
     case button0 = "0"
@@ -20,4 +20,12 @@ enum NumberButton : String {
     case button8 = "8"
     case button9 = "9"
     case buttonDot = "."
+    
+
+    var color : UIColor {
+        return .darkGray
+    }
+
+    
 }
+

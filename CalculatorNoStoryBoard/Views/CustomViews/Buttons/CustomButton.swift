@@ -25,27 +25,58 @@ class CustomButton: UIButton {
         switch typeButton {
         case .operationButton(let operationButton):
             switch operationButton {
-            case .buttonAC,.buttonChangeSign,.buttonPercentage:
-                self.backgroundColor = .gray
+            
+            case .acOperationButton(let acOperationButton):
+                self.configuration = .filled()
+                self.configuration?.cornerStyle = .capsule
+                self.configuration?.baseBackgroundColor = acOperationButton.color
+                
                 self.setTitleColor(.black, for: .normal)
-                self.setTitle(operationButton.rawValue, for: .normal)
-                self.titleLabel?.font = UIFont.systemFont(ofSize: 30)
-            default:
-                self.backgroundColor = .systemOrange
+                self.setTitle(acOperationButton.rawValue, for: .normal)
+                self.titleLabel?.font = UIFont.systemFont(ofSize: 40)
+            case .specialOperationButtons(let specialOperationButton):
+                self.configuration = .filled()
+                self.configuration?.cornerStyle = .capsule
+                self.configuration?.baseBackgroundColor = specialOperationButton.color
+                //                self.backgroundColor = .gray
+                self.setTitleColor(.black, for: .normal)
+                self.setTitle(specialOperationButton.rawValue, for: .normal)
+                self.titleLabel?.font = UIFont.systemFont(ofSize: 40)
+            case .arithmeticOperationButtons(let arithmeticOperationButton):
+                self.configuration = .filled()
+                self.configuration?.cornerStyle = .capsule
+                self.configuration?.baseBackgroundColor = arithmeticOperationButton.color
+                //                self.backgroundColor = .systemOrange
                 self.setTitleColor(.white, for: .normal)
-                self.setTitle(operationButton.rawValue, for: .normal)
-                self.titleLabel?.font = UIFont.systemFont(ofSize: 30)
+                self.setTitle(arithmeticOperationButton.rawValue, for: .normal)
+                self.titleLabel?.font = UIFont.systemFont(ofSize: 40)
+            case .plusMinusOperationButtons(let plusMinusOperationButton):
+                self.configuration = .filled()
+                self.configuration?.cornerStyle = .capsule
+                self.configuration?.baseBackgroundColor = plusMinusOperationButton.color
+                //                self.backgroundColor = .systemOrange
+                self.setTitleColor(.white, for: .normal)
+                self.setTitle(plusMinusOperationButton.rawValue, for: .normal)
+                self.titleLabel?.font = UIFont.systemFont(ofSize: 40)
+            case.equalOperationButton(let equalOperationButton):
+                self.configuration = .filled()
+                self.configuration?.cornerStyle = .capsule
+                self.configuration?.baseBackgroundColor = equalOperationButton.color
+                //                self.backgroundColor = .systemOrange
+                self.setTitleColor(.white, for: .normal)
+                self.setTitle(equalOperationButton.rawValue, for: .normal)
+                self.titleLabel?.font = UIFont.systemFont(ofSize: 40)
             }
-    
         case .numberButton(let numberButton):
-            self.backgroundColor = .darkGray
+            self.configuration = .filled()
+            self.configuration?.cornerStyle = .capsule
+            self.configuration?.baseBackgroundColor = numberButton.color
+            //            self.backgroundColor = .darkGray
             self.setTitleColor(.white, for: .normal)
             self.setTitle(numberButton.rawValue, for: .normal)
-            self.titleLabel?.font = UIFont.systemFont(ofSize: 30)
+            self.titleLabel?.font = UIFont.systemFont(ofSize: 40)
         }
-        
-  
-
     }
     
 }
+
