@@ -9,19 +9,33 @@
 /* Begin PBXBuildFile section */
 		2328EAF32B6D2B9800F1FF7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2328EAF22B6D2B9800F1FF7D /* AppDelegate.swift */; };
 		2328EAF52B6D2B9800F1FF7D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2328EAF42B6D2B9800F1FF7D /* SceneDelegate.swift */; };
-		2328EAF72B6D2B9800F1FF7D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2328EAF62B6D2B9800F1FF7D /* ViewController.swift */; };
+		2328EAF72B6D2B9800F1FF7D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2328EAF62B6D2B9800F1FF7D /* HomeView.swift */; };
 		2328EAFC2B6D2B9900F1FF7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2328EAFB2B6D2B9900F1FF7D /* Assets.xcassets */; };
 		2328EAFF2B6D2B9900F1FF7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2328EAFD2B6D2B9900F1FF7D /* LaunchScreen.storyboard */; };
+		2393EA4D2B6FB7EA001CAC66 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2393EA4C2B6FB7EA001CAC66 /* CustomButton.swift */; };
+		2393EA512B6FB909001CAC66 /* TypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2393EA502B6FB909001CAC66 /* TypeButton.swift */; };
+		2393EA532B6FBB51001CAC66 /* OperationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2393EA522B6FBB51001CAC66 /* OperationButton.swift */; };
+		2393EA552B6FBC5F001CAC66 /* NumberButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2393EA542B6FBC5F001CAC66 /* NumberButton.swift */; };
+		23A12AD02B77CD700021AAE4 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A12ACF2B77CD700021AAE4 /* DoubleExtension.swift */; };
+		23AC800E2B700D5600FE58E1 /* CalculatorLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AC800D2B700D5600FE58E1 /* CalculatorLogic.swift */; };
+		23F5D10D2B6FD73000F13E8B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F5D10C2B6FD73000F13E8B /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2328EAEF2B6D2B9800F1FF7D /* CalculatorNoStoryBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalculatorNoStoryBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2328EAF22B6D2B9800F1FF7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2328EAF42B6D2B9800F1FF7D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2328EAF62B6D2B9800F1FF7D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2328EAF62B6D2B9800F1FF7D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2328EAFB2B6D2B9900F1FF7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2328EAFE2B6D2B9900F1FF7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2328EB002B6D2B9900F1FF7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2393EA4C2B6FB7EA001CAC66 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		2393EA502B6FB909001CAC66 /* TypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeButton.swift; sourceTree = "<group>"; };
+		2393EA522B6FBB51001CAC66 /* OperationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationButton.swift; sourceTree = "<group>"; };
+		2393EA542B6FBC5F001CAC66 /* NumberButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberButton.swift; sourceTree = "<group>"; };
+		23A12ACF2B77CD700021AAE4 /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
+		23AC800D2B700D5600FE58E1 /* CalculatorLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorLogic.swift; sourceTree = "<group>"; };
+		23F5D10C2B6FD73000F13E8B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +68,85 @@
 		2328EAF12B6D2B9800F1FF7D /* CalculatorNoStoryBoard */ = {
 			isa = PBXGroup;
 			children = (
-				2328EAF22B6D2B9800F1FF7D /* AppDelegate.swift */,
-				2328EAF42B6D2B9800F1FF7D /* SceneDelegate.swift */,
-				2328EAF62B6D2B9800F1FF7D /* ViewController.swift */,
+				23A12AD12B77CF460021AAE4 /* Utils */,
+				23DBF9FD2B7024D800703649 /* Delegates */,
+				23AC800F2B70219C00FE58E1 /* Model */,
+				23F5D1082B6FD60B00F13E8B /* Views */,
+				23F5D10B2B6FD6F900F13E8B /* Controller */,
 				2328EAFB2B6D2B9900F1FF7D /* Assets.xcassets */,
-				2328EAFD2B6D2B9900F1FF7D /* LaunchScreen.storyboard */,
 				2328EB002B6D2B9900F1FF7D /* Info.plist */,
 			);
 			path = CalculatorNoStoryBoard;
+			sourceTree = "<group>";
+		};
+		2393EA4E2B6FB7EF001CAC66 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				23F5D1072B6FD1DF00F13E8B /* EnumsAboutButton */,
+				2393EA4F2B6FB7F8001CAC66 /* Buttons */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		2393EA4F2B6FB7F8001CAC66 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				2393EA4C2B6FB7EA001CAC66 /* CustomButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		23A12AD12B77CF460021AAE4 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				23A12ACF2B77CD700021AAE4 /* DoubleExtension.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		23AC800F2B70219C00FE58E1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				23AC800D2B700D5600FE58E1 /* CalculatorLogic.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		23DBF9FD2B7024D800703649 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				2328EAF22B6D2B9800F1FF7D /* AppDelegate.swift */,
+				2328EAF42B6D2B9800F1FF7D /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		23F5D1072B6FD1DF00F13E8B /* EnumsAboutButton */ = {
+			isa = PBXGroup;
+			children = (
+				2393EA522B6FBB51001CAC66 /* OperationButton.swift */,
+				2393EA542B6FBC5F001CAC66 /* NumberButton.swift */,
+				2393EA502B6FB909001CAC66 /* TypeButton.swift */,
+			);
+			path = EnumsAboutButton;
+			sourceTree = "<group>";
+		};
+		23F5D1082B6FD60B00F13E8B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2328EAFD2B6D2B9900F1FF7D /* LaunchScreen.storyboard */,
+				2328EAF62B6D2B9800F1FF7D /* HomeView.swift */,
+				2393EA4E2B6FB7EF001CAC66 /* CustomViews */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		23F5D10B2B6FD6F900F13E8B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				23F5D10C2B6FD73000F13E8B /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,8 +219,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2328EAF72B6D2B9800F1FF7D /* ViewController.swift in Sources */,
+				23A12AD02B77CD700021AAE4 /* DoubleExtension.swift in Sources */,
+				2393EA512B6FB909001CAC66 /* TypeButton.swift in Sources */,
+				2393EA552B6FBC5F001CAC66 /* NumberButton.swift in Sources */,
+				23AC800E2B700D5600FE58E1 /* CalculatorLogic.swift in Sources */,
+				2393EA4D2B6FB7EA001CAC66 /* CustomButton.swift in Sources */,
+				2328EAF72B6D2B9800F1FF7D /* HomeView.swift in Sources */,
+				2393EA532B6FBB51001CAC66 /* OperationButton.swift in Sources */,
 				2328EAF32B6D2B9800F1FF7D /* AppDelegate.swift in Sources */,
+				23F5D10D2B6FD73000F13E8B /* ViewController.swift in Sources */,
 				2328EAF52B6D2B9800F1FF7D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
