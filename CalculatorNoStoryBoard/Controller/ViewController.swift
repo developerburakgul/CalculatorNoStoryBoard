@@ -19,9 +19,13 @@ class ViewController: UIViewController {
             return number
         }
         set {
-            homeView.label.text = "\(newValue)"
+            
+            homeView.label.text = newValue.isInt == true ? "\(Int(newValue))" : "\(newValue)"
+            
         }
     }
+
+
     
     
     
@@ -33,6 +37,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configurationActions()
+
     }
     
     //MARK: - Configuration
