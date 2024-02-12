@@ -25,6 +25,9 @@ enum NumberButton : String {
     var color : UIColor {
         return .darkGray
     }
+    var selectedBackgroundColor : UIColor{
+        return .white
+    }
 
     
 }
