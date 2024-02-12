@@ -19,16 +19,10 @@ class ViewController: UIViewController {
             return number
         }
         set {
-            
             homeView.label.text = newValue.isInt == true ? "\(Int(newValue))" : "\(newValue)"
-            
         }
     }
 
-
-    
-    
-    
     //MARK: - LifeCycle Methods
     override func loadView() {
         super.loadView()
@@ -37,11 +31,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configurationActions()
-
     }
-    
     //MARK: - Configuration
-    
     private func configurationActions()  {
         homeView.button0.addTarget(self, action: #selector(pressedNumber), for: .touchUpInside)
         homeView.button1.addTarget(self, action: #selector(pressedNumber), for: .touchUpInside)
@@ -63,20 +54,18 @@ class ViewController: UIViewController {
         homeView.buttonMinus.addTarget(self, action: #selector(pressedOperation), for: .touchUpInside)
         homeView.buttonPlus.addTarget(self, action: #selector(pressedOperation), for: .touchUpInside)
         homeView.buttonEqual.addTarget(self, action: #selector(pressedOperation), for: .touchUpInside)
-        
     }
     
     //MARK: - Functions
-    
     @objc private func pressedNumber(_ sender : UIButton){
-        
         if let stringNumber = sender.currentTitle {
             if isFinishedTypingNumber { // for the first digit
-                homeView.label.text = stringNumber
                 isFinishedTypingNumber = false
+                homeView.label.text = stringNumber
+                homeView.buttonAC.setTitle("C", for: .normal)
             }else {
                 if stringNumber == NumberButton.buttonDot.rawValue {
-                    var dot = Character(NumberButton.buttonDot.rawValue)
+                    let dot = Character(NumberButton.buttonDot.rawValue)
                     if homeView.label.text?.last == dot {
                         return
                     }
@@ -87,27 +76,26 @@ class ViewController: UIViewController {
                     }
                 }
                 homeView.label.text = homeView.label.text! + stringNumber
-                
             }
         }
     }
-    
     @objc private func pressedOperation(_ sender : UIButton)  {
+        if sender == homeView.buttonAC {
+            homeView.buttonAC.setTitle("AC", for: .normal)
+        }
+        
+
+        if !isFinishedTypingNumber {
+            calculatorLogic.setNumber(screenValue)
+        }
         isFinishedTypingNumber = true
-        calculatorLogic.setNumber(screenValue)
         if let operation = sender.currentTitle {
             if let result = calculatorLogic.calculate(symbol: operation) {
                 screenValue = result
             }
-            
         }
-        
-        
-        
     }
-    
 }
 #Preview(""){
     ViewController()
-
 }
