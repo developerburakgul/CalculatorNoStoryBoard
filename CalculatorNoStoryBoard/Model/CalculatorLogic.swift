@@ -35,25 +35,33 @@ struct CalculatorLogic {
     private var isNilOperation3 : Bool {
         return operation3 == nil
     }
-    
-//    private var specialOperations : Set<OperationButton> = [.buttonChangeSign,.buttonPercentage]
-//    private var plusMinusOperations : Set<OperationButton> = [.buttonPlus,.buttonMinus]
-//    private var arithmeticOperations: Set<OperationButton> = [.buttonMultiplication,.buttonDivide]
-//    private var otherOperations : Set<OperationButton> = [.buttonAC,.buttonEqual]
-    
-    
-    
+    //MARK: - Public Functions
     mutating func setNumber(_ number : Double)  {
-        if isNiloperation1 && isNiloperation2 && isNilOperation3{
+//        if isNiloperation1 && isNiloperation2 && isNilOperation3{
+//            number1 = number
+//        }else if !isNiloperation1 && isNiloperation2 && isNilOperation3 {
+//            number2 = number
+//        }else if !isNiloperation1 && !isNiloperation2  && isNilOperation3{
+//            number3 = number
+//        }
+        let operationStates = (isNiloperation1, isNiloperation2, isNilOperation3)
+        switch operationStates {
+        case (true, true, true):
             number1 = number
-        }else if !isNiloperation1 && isNiloperation2 && isNilOperation3 {
+        case (false, true, true):
             number2 = number
-        }else if !isNiloperation1 && !isNiloperation2  && isNilOperation3{
+        case (false, false, true):
             number3 = number
+        default:
+            fatalError("Unexpected case")
         }
     }
-    
-    func createOperationButton(from symbol: String) -> OperationButton? {
+    mutating func calculate(symbol : String) -> Double? {
+        setOperation(symbol)
+        return getResult()
+    }
+    //MARK: - Private Functions
+    private func createOperationButton(from symbol: String) -> OperationButton? {
         if let acCase = AcOperationButton(rawValue: symbol) {
             return .acOperationButton(acCase)
         } else if let equalCase = EqualOperationButton(rawValue: symbol) {
@@ -65,16 +73,13 @@ struct CalculatorLogic {
         } else if let plusMinusCase = PlusMinusOperationButtons(rawValue: symbol) {
             return .plusMinusOperationButtons(plusMinusCase)
         }
-        
         // Eğer geçerli bir enum bulunamazsa, nil döndürür.
         return nil
     }
-    
-    mutating func setOperation(_ symbol : String) {
+    private mutating func setOperation(_ symbol : String) {
 //        guard let operationButton =  OperationButton(rawValue: symbol) else {fatalError("Operation Button could not create")}
 //        guard let operationButton =  OperationButton.Type else {fatalError("Operation Button could not create")}
         guard let operationButton = createOperationButton(from: symbol) else {fatalError("Operation Button could not create")}
-        
         if  !isNilnumber1 && isNilnumber2 && isNilnumber3{
             operation1 = operationButton
         }else if !isNilnumber1 && !isNilnumber2 && isNilnumber3 {
@@ -83,16 +88,10 @@ struct CalculatorLogic {
             operation3 = operationButton
         }
     }
-    
-    mutating func calculate(symbol : String) -> Double? {
-        setOperation(symbol)
-        return getResult()
-    }
-    
-    mutating func getResult() -> Double? {
-        var f1 = notNil_number1_operation1()
-        var f2 = notNil_number1_operation1_number2_operation2()
-        var f3 = notNil_number1_operation1_number2_operation2_number3()
+    private mutating func getResult() -> Double? {
+        let f1 = notNil_number1_operation1()
+        let f2 = notNil_number1_operation1_number2_operation2()
+        let f3 = notNil_number1_operation1_number2_operation2_number3()
         if f1 != nil {
             return f1
         }else if f2 != nil {
@@ -102,13 +101,16 @@ struct CalculatorLogic {
         }
         return nil
     }
-    
-    mutating func notNil_number1_operation1() -> Double? {
+    private mutating func notNil_number1_operation1() -> Double? {
         if !isNilnumber1 && !isNiloperation1 && isNilnumber2 && isNiloperation2 && isNilnumber3 && isNilOperation3 {
             switch operation1!{
             case .acOperationButton(let acOperationButton): // Number1 AC     = 2 Ac
                 number1 = 0
                 operation1 = nil
+                number2 = nil
+                operation2 = nil
+                number3 = nil
+                operation3 = nil
                 return number1
             case .specialOperationButtons(let specialOperationButtons):
                 switch specialOperationButtons{
@@ -133,7 +135,7 @@ struct CalculatorLogic {
         return nil
     }
     
-    mutating func notNil_number1_operation1_number2_operation2() -> Double? {
+    private mutating func notNil_number1_operation1_number2_operation2() -> Double? {
         if !isNilnumber1 && !isNiloperation1 && !isNilnumber2 && !isNiloperation2 && isNilnumber3  && isNilOperation3{
             switch operation2!{
             case .acOperationButton(let acOperationButton):
@@ -141,6 +143,8 @@ struct CalculatorLogic {
                 operation1 = nil
                 number2 = nil
                 operation2 = nil
+                number3 = nil
+                operation3 = nil
                 return number1
             case .specialOperationButtons(let specialOperationButtons):
                 switch specialOperationButtons {
@@ -168,6 +172,7 @@ struct CalculatorLogic {
                     case .buttonMultiplication:
                         resultData = number1! * number2!
                     case .buttonDivide:
+                       
                         resultData = Double(number1!) / Double(number2!) // in here number2 should not be 0 handle this case
                     }
                 default:
@@ -178,7 +183,6 @@ struct CalculatorLogic {
                 number2 = nil
                 operation2 = nil
                 return resultData
-        
             case .plusMinusOperationButtons(let plusMinusOperationButtons): // operation2 is +,- and operation1 is +,-,x,/
                 var resultData : Double?
                 switch operation1!{
@@ -229,7 +233,7 @@ struct CalculatorLogic {
         return nil
     }
    
-    mutating func notNil_number1_operation1_number2_operation2_number3() -> Double? {
+    private mutating func notNil_number1_operation1_number2_operation2_number3() -> Double? {
         if !isNilnumber1 && !isNiloperation1 && !isNilnumber2 && !isNiloperation2 && !isNilnumber3 {
             switch operation3 {
             case .acOperationButton(let acOperationButton): // 2 + 3 X 5 AC, 2 - 3 X 5 AC
