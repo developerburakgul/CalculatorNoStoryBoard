@@ -18,6 +18,7 @@
 		2393EA552B6FBC5F001CAC66 /* NumberButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2393EA542B6FBC5F001CAC66 /* NumberButton.swift */; };
 		23A12AD02B77CD700021AAE4 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A12ACF2B77CD700021AAE4 /* DoubleExtension.swift */; };
 		23AC800E2B700D5600FE58E1 /* CalculatorLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AC800D2B700D5600FE58E1 /* CalculatorLogic.swift */; };
+		23BA992B2B7BBCC300D56A5A /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BA992A2B7BBCC300D56A5A /* Error.swift */; };
 		23F5D10D2B6FD73000F13E8B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F5D10C2B6FD73000F13E8B /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		2393EA542B6FBC5F001CAC66 /* NumberButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberButton.swift; sourceTree = "<group>"; };
 		23A12ACF2B77CD700021AAE4 /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
 		23AC800D2B700D5600FE58E1 /* CalculatorLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorLogic.swift; sourceTree = "<group>"; };
+		23BA992A2B7BBCC300D56A5A /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		23F5D10C2B6FD73000F13E8B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				23AC800D2B700D5600FE58E1 /* CalculatorLogic.swift */,
+				23BA992A2B7BBCC300D56A5A /* Error.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 				23A12AD02B77CD700021AAE4 /* DoubleExtension.swift in Sources */,
 				2393EA512B6FB909001CAC66 /* TypeButton.swift in Sources */,
 				2393EA552B6FBC5F001CAC66 /* NumberButton.swift in Sources */,
+				23BA992B2B7BBCC300D56A5A /* Error.swift in Sources */,
 				23AC800E2B700D5600FE58E1 /* CalculatorLogic.swift in Sources */,
 				2393EA4D2B6FB7EA001CAC66 /* CustomButton.swift in Sources */,
 				2328EAF72B6D2B9800F1FF7D /* HomeView.swift in Sources */,

@@ -56,9 +56,15 @@ struct CalculatorLogic {
             fatalError("Unexpected case")
         }
     }
-    mutating func calculate(symbol : String) -> Double? {
+    mutating func calculate(symbol : String) throws -> Double? {
         setOperation(symbol)
-        return getResult()
+        var result : Double? = nil
+        do {
+             result = try getResult()
+        } catch  {
+            throw error
+        }
+        return result
     }
     //MARK: - Private Functions
     private func createOperationButton(from symbol: String) -> OperationButton? {
@@ -88,10 +94,17 @@ struct CalculatorLogic {
             operation3 = operationButton
         }
     }
-    private mutating func getResult() -> Double? {
-        let f1 = notNil_number1_operation1()
-        let f2 = notNil_number1_operation1_number2_operation2()
-        let f3 = notNil_number1_operation1_number2_operation2_number3()
+    private mutating func getResult() throws -> Double? {
+        var f1 = notNil_number1_operation1()
+        var f2 : Double?
+        var f3 : Double?
+        do {
+            f2 = try notNil_number1_operation1_number2_operation2()
+            f3 = try notNil_number1_operation1_number2_operation2_number3()
+        } catch  {
+            throw error
+        }
+
         if f1 != nil {
             return f1
         }else if f2 != nil {
@@ -135,7 +148,7 @@ struct CalculatorLogic {
         return nil
     }
     
-    private mutating func notNil_number1_operation1_number2_operation2() -> Double? {
+    private mutating func notNil_number1_operation1_number2_operation2() throws -> Double? {
         if !isNilnumber1 && !isNiloperation1 && !isNilnumber2 && !isNiloperation2 && isNilnumber3  && isNilOperation3{
             switch operation2!{
             case .acOperationButton(let acOperationButton):
@@ -172,7 +185,9 @@ struct CalculatorLogic {
                     case .buttonMultiplication:
                         resultData = number1! * number2!
                     case .buttonDivide:
-                       
+                        if number2! == 0.0 {
+                            throw LogicError.divisionByZero
+                        }
                         resultData = Double(number1!) / Double(number2!) // in here number2 should not be 0 handle this case
                     }
                 default:
@@ -198,6 +213,9 @@ struct CalculatorLogic {
                     case .buttonMultiplication:
                         resultData = number1! * number2!
                     case .buttonDivide:
+                        if number2! == 0.0 {
+                            throw LogicError.divisionByZero
+                        }
                         resultData = Double(number1!) / Double(number2!) // in here number2 should not be 0 handle this case
                     }
                 default:
@@ -216,6 +234,9 @@ struct CalculatorLogic {
                     case .buttonMultiplication:
                         resultData = number1! * number2!
                     case .buttonDivide:
+                        if number2! == 0.0 {
+                            throw LogicError.divisionByZero
+                        }
                         resultData = Double(number1!) / Double(number2!) // in here number2 should not be 0 handle this case
                     }
                 default:
@@ -233,7 +254,7 @@ struct CalculatorLogic {
         return nil
     }
    
-    private mutating func notNil_number1_operation1_number2_operation2_number3() -> Double? {
+    private mutating func notNil_number1_operation1_number2_operation2_number3() throws -> Double? {
         if !isNilnumber1 && !isNiloperation1 && !isNilnumber2 && !isNiloperation2 && !isNilnumber3 {
             switch operation3 {
             case .acOperationButton(let acOperationButton): // 2 + 3 X 5 AC, 2 - 3 X 5 AC
@@ -266,6 +287,9 @@ struct CalculatorLogic {
                     case .buttonMultiplication:
                         rightSideResult = number2! * number3!
                     case .buttonDivide:
+                        if number3! == 0.0 {
+                            throw LogicError.divisionByZero
+                        }
                         rightSideResult = (number2!) / (number3!)
                     }
                 default:
@@ -305,6 +329,9 @@ struct CalculatorLogic {
                     case .buttonMultiplication:
                         rightSideResult = number2! * number3!
                     case .buttonDivide:
+                        if number3! == 0.0 {
+                            throw LogicError.divisionByZero
+                        }
                         rightSideResult = (number2!) / (number3!)
                     }
                 default:
@@ -340,6 +367,9 @@ struct CalculatorLogic {
                     case .buttonMultiplication:
                         number2 = number2! * number3!
                     case .buttonDivide:
+                        if number3! == 0.0 {
+                            throw LogicError.divisionByZero
+                        }
                         number2 = (number2!)/(number3!)
                     }
                     

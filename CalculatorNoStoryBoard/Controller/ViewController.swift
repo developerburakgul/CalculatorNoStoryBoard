@@ -8,7 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     private var homeView =  HomeView()
     private var calculatorLogic = CalculatorLogic()
     private var isFinishedTypingNumber : Bool = true
@@ -22,7 +22,7 @@ class ViewController: UIViewController {
             homeView.label.text = newValue.isInt == true ? "\(Int(newValue))" : "\(newValue)"
         }
     }
-
+    
     //MARK: - LifeCycle Methods
     override func loadView() {
         super.loadView()
@@ -84,14 +84,20 @@ class ViewController: UIViewController {
             homeView.buttonAC.setTitle("AC", for: .normal)
         }
         
-
+        
         if !isFinishedTypingNumber {
             calculatorLogic.setNumber(screenValue)
         }
         isFinishedTypingNumber = true
         if let operation = sender.currentTitle {
-            if let result = calculatorLogic.calculate(symbol: operation) {
-                screenValue = result
+            do {
+                if let result = try calculatorLogic.calculate(symbol: operation) {
+                    screenValue = result
+                }
+                
+            } catch {
+                homeView.label.text = "Error"
+                
             }
         }
     }
